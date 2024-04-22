@@ -8,7 +8,7 @@ namespace ChatServer
 {
     // Trata os argumentos para o evento StartChanged
 
-    internal class StatusChangedEventArgs : EventArgs
+    public class StatusChangedEventArgs : EventArgs
     {
         private String EventMsg;
 

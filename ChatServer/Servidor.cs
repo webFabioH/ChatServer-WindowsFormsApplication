@@ -140,11 +140,23 @@ namespace ChatServer
 
                 ServerRodando = true;
 
-
+                thrListener = new Thread(MantemAtendimento);
+                thrListener.IsBackground = true;
+                thrListener.Start();
             }
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void MantemAtendimento()
+        {
+            while (ServerRodando)
+            {
+                tcpCliente = tlsCliente.AcceptTcpClient();
+
+                Conexao newConnection = new Conexao(tcpCliente);
             }
         }
     }
