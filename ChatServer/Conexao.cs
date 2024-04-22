@@ -74,9 +74,16 @@ namespace ChatServer
 
             try
             {
-                while ()
+                while ((strResposta = srReceptor.ReadLine()) != "")
                 {
-
+                    if (strResposta == null)
+                    {
+                        Servidor.RemoveUsuario(tcpCliente);
+                    }
+                    else
+                    {
+                        Servidor.EnviaMensagem(usuarioAtual, strResposta);
+                    }
                 }
             }
             catch
